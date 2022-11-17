@@ -18,9 +18,10 @@ class MemberRepository extends ModuleRepository
 
     // all published members
 
-    public function allPublished()
+    public function allMembers()
     {
-        return $this->model->published()->get();
+
+        return $this->model->published()->orderBy('title')->get();
     }
 
     // all published members with a specific group
