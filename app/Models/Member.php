@@ -21,9 +21,11 @@ class Member extends Model implements Sortable
         'email',
         'phone',
         'website',
+        //'linkedin',
         'address',
         'region',
         'group',
+        'type',
     ];
 
     public $slugAttributes = [
