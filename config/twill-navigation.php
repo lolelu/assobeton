@@ -6,6 +6,11 @@ return [
         'module' => true,
     ],
 
+    'events' => [
+        'title' => 'News e eventi',
+        'module' => true,
+    ],
+
     'static' => [
         'title' => 'Static',
         'route' => 'admin.static.associazione.chi_siamo.index',
@@ -13,6 +18,7 @@ return [
             'associazione' => [
                 'title' => 'Associazione',
                 'secondary_navigation' => [
+
                     'chi_siamo' => [
                         'title' => 'Chi siamo',
                         'module' => true,
@@ -71,10 +77,7 @@ return [
                 'title' => 'Indici',
                 'module' => true,
             ],
-            'news_eventi' => [
-                'title' => 'News e eventi',
-                'module' => true,
-            ],
+
             'comunicati_stampa' => [
                 'title' => 'Comunicati stampa',
                 'module' => true,

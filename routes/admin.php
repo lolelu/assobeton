@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 // Register Twill routes here eg.
 Route::module('members');
 
+Route::module('events');
+
 Route::group(['prefix' => 'settings'], function () {
     Route::module('seo_data');
     Route::module('metadata');
@@ -33,6 +35,7 @@ Route::group(['prefix' => 'static'], function () {
 Route::group(['prefix' => 'content'], function () {
     Route::module('pubblicazioni');
     Route::module('indici');
-    Route::module('news_eventi');
+
     Route::module('comunicati_stampa');
+    //Route::module('circolari');
 });

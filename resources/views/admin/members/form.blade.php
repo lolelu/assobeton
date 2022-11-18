@@ -30,6 +30,10 @@
 
 @section('contentFields')
 
+
+
+
+
     @formField('input', [
     'name' => 'title',
     'label' => 'Nome',

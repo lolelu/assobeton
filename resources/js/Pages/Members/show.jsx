@@ -31,6 +31,8 @@ const show = ({ member }) => {
                 {member.carousel.map((image) => {
                     <img src={image} alt={member.title} />;
                 })}
+
+                {JSON.stringify(member)}
             </div>
         </AssobetonLayout>
     );

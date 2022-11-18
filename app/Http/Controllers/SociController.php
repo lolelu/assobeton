@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Repositories\MemberRepository;
 
+use Illuminate\Support\Facades\Route;
+
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,15 +20,9 @@ class SociController extends Controller
 
     public function index()
     {
-        $members = $this->repository->allMembers()->map(function ($member) {
-            return [
-                ...$member->toArray(),
-                'logo' => $member->image('logo'),
-                'slug' => $member->slug,
-            ];
-        });
+        $members = $this->repository->allMembers();
 
-        return Inertia::render('Members/index', [
+        return view('pages.members.index', [
             'members' => $members,
         ]);
     }
@@ -35,20 +31,14 @@ class SociController extends Controller
     {
         $member = $this->repository->forSlug($slug);
 
-        $member = [
-            ...$member->toArray(),
-            'logo' => $member->image('logo'),
-            'slug' => $member->slug,
-            'carousel' => $member->images('carousel'),
-
-        ];
-
-
-
-
         abort_unless($member, 404, "Socio non trovato");
 
-        return Inertia::render('Members/show', [
+        //redirect to the correct slug if the one in the url is wrong
+
+        if ($member->slug != $slug) {
+            return redirect()->route('members.show', $member->slug, 301);
+        }
+        return view('pages.members.show', [
             'member' => $member,
         ]);
     }

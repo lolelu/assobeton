@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\SociController;
+use App\Http\Controllers\NewsEventiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +17,16 @@ use App\Http\Controllers\SociController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('welcome');
 });
+Route::get('/members', [SociController::class, 'index'])->middleware(['auth', 'verified'])->name('members.index');
+Route::get('/members/{slug}', [SociController::class, 'show'])->middleware(['auth', 'verified'])->name('members.show');
+
+Route::get('/news_events', [NewsEventiController::class, 'index'])->middleware(['auth', 'verified'])->name('news_events.index');
+Route::get('/news_events/{slug}', [NewsEventiController::class, 'show'])->middleware(['auth', 'verified'])->name('news_events.show');
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -36,7 +35,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/members', [SociController::class, 'index'])->name('members.index');
-Route::get('/members/{slug}', [SociController::class, 'show'])->name('members.show');
 
 require __DIR__ . '/auth.php';
