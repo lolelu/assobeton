@@ -1,7 +1,6 @@
 <?php
 return [
     'block_editor' => [
-
         'crops' => [
             'image' => [
                 'desktop' => [
@@ -36,5 +35,6 @@ return [
                 ],
             ],
         ],
+
     ],
 ];

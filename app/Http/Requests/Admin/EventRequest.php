@@ -14,6 +14,13 @@ class EventRequest extends Request
     public function rulesForUpdate()
     {
         return [
+
+            'title' => 'required|max:200|string',
+            'subtitle' => 'required|max:200|string',
+            'description' => 'required|max:500|string',
+            'thematic' => 'required|max:200|string',
+
+
             'blocks' => 'validBlocks'
         ];
     }

@@ -25,7 +25,13 @@ class EventRepository extends ModuleRepository
 
     public function allPublished()
     {
-
         return $this->model->published()->orderBy('title')->get();
+    }
+
+    // all published non private 
+
+    public function allPublishedNonPrivate()
+    {
+        return $this->model->published()->where('private', 0)->orderBy('title')->get();
     }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>#madewithtwill website</title>
+    <title>Assobeton</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 

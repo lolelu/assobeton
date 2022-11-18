@@ -5,13 +5,11 @@
 'name' => 'image', // role
 'label' => 'Image',
 'withVideoUrl' => false,
-'translated' => false,
 ])
 
 @formField('input', [
 'name' => 'author',
 'label' => 'Author',
-'translated' => false,
 ])
 
 @formField('radios', [

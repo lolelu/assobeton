@@ -24,9 +24,11 @@ class CreateMembersTables extends Migration
             $table->string('phone', 200)->nullable();
             $table->string('website', 200)->nullable();
             $table->string('address', 200)->nullable();
+            //$table->string('linkedin', 200)->nullable();
 
             $table->string('region')->nullable();
             $table->string('group')->nullable();
+            $table->string('type')->nullable();
 
 
 

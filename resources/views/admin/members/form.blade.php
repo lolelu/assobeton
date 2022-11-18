@@ -26,6 +26,7 @@
         ['value' => 'valle-aosta', 'label' => 'Valle d\'Aosta'],
         ['value' => 'veneto', 'label' => 'Veneto'],
     ];
+    $types = [['value' => 'ordinari', 'label' => 'Ordinari'], ['value' => 'aggregati', 'label' => 'Aggregati'], ['value' => 'aggregati_di_gruppo', 'label' => 'Aggregati di gruppo'], ['value' => 'professionista', 'label' => 'Professionista']];
 @endphp
 
 @section('contentFields')
@@ -56,6 +57,15 @@
     'options' => $groups,
     'required' => true
     ])
+
+    @formField('select', [
+    'name' => 'type',
+    'label' => 'Tipo di socio',
+    'placeholder' => 'Seleziona un tipo di socio',
+    'options' => $types,
+    'required' => true
+    ])
+
 
     @formField('wysiwyg', [
     'name' => 'description',
@@ -129,5 +139,12 @@
     'required' => false
     ])
 
+
+    @formField('input', [
+    'name' => 'linkedin',
+    'label' => 'Profilo Linkedin',
+    'maxlength' => 200,
+    'required' => false
+    ])
 
 @stop
