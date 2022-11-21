@@ -4,6 +4,8 @@ namespace App\Http\Requests\Admin;
 
 use A17\Twill\Http\Requests\Admin\Request;
 
+use Illuminate\Validation\Rule;
+
 class MemberRequest extends Request
 {
     public function rulesForCreate()
@@ -21,8 +23,12 @@ class MemberRequest extends Request
             //'linkedin' => 'required|url',
             'address' => 'required',
             'region' => 'required',
-            'group' => 'required',
+
             'type' => 'required',
+
+
+            //validate browser
+            'browsers.gruppiMerceologici' => 'required',
 
             //logo, with crop and ratio is required
             'medias.logo' => 'required',

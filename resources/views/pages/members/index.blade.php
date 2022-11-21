@@ -15,7 +15,7 @@
                                 height="100"></td>
                         <td>{{ $member->title }}</td>
 
-                        <td><a href="{{ route('members.show', $member->slug) }}">View</a></td>
+                        <td><a href="{{ route('soci.show', $member->slug) }}">View</a></td>
                     </tr>
                 @endforeach
             </table>

@@ -15,7 +15,7 @@
                                 height="100"></td>
                         <td>{{ $event->title }}</td>
 
-                        <td><a href="{{ route('news_events.show', $event->slug) }}">View</a></td>
+                        <td><a href="{{ route('news_eventi.show', $event->slug) }}">View</a></td>
                     </tr>
                 @endforeach
             </table>

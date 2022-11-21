@@ -16,12 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                    <x-nav-link :href="route('soci.index')" :active="request()->routeIs('members.index')">
                         {{ __('Soci') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('news_events.index')" :active="request()->routeIs('posts.index')">
+                    <x-nav-link :href="route('news_eventi.index')" :active="request()->routeIs('posts.index')">
                         {{ __('News e Eventi') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('gruppi_merceologici.index')" :active="request()->routeIs('gruppi_merceologici.index')">
+                        {{ __('Gruppi Merceologici') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -87,12 +91,16 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('members.index')" :active="request()->routeIs('members.index')">
-                {{ __('Members') }}
+            <x-responsive-nav-link :href="route('soci.index')" :active="request()->routeIs('members.index')">
+                {{ __('Soci') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('news_events.index')" :active="request()->routeIs('news_events.index')">
+            <x-responsive-nav-link :href="route('news_eventi.index')" :active="request()->routeIs('news_events.index')">
                 {{ __('News e Eventi') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('gruppi_merceologici.index')" :active="request()->routeIs('gruppi_merceologici.index')">
+                {{ __('Gruppi Merceologici') }}
             </x-responsive-nav-link>
         </div>
 

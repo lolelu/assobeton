@@ -1,8 +1,56 @@
 <?php
 
 return [
+
+
+    'associazione' => [
+        'route' => 'admin.associazione.chiSiamo.index',
+        'title' => 'Associazione',
+        'primary_navigation' => [
+
+            'chiSiamo' => [
+                'title' => 'Chi siamo',
+                'module' => true,
+            ],
+            'storia' => [
+                'title' => 'Storia',
+                'module' => true,
+            ],
+            'organigramma' => [
+                'title' => 'Organigramma',
+                'module' => true,
+            ],
+        ],
+    ],
+
     'members' => [
         'title' => 'Soci',
+        'module' => true,
+    ],
+
+
+    'gruppiMerceologicis' => [
+        'title' => 'Gruppi merceologici',
+        'module' => true,
+    ],
+
+    'servizi' => [
+        'title' => 'Servizi',
+        'module' => true,
+    ],
+    'pubblicazioni' => [
+        'title' => 'Pubblicazioni',
+        'module' => true,
+    ],
+
+
+    'registrazione' => [
+        'title' => 'Registrazione',
+        'module' => true,
+    ],
+
+    'contatti' => [
+        'title' => 'Contatti',
         'module' => true,
     ],
 
@@ -11,44 +59,29 @@ return [
         'module' => true,
     ],
 
-    'static' => [
-        'title' => 'Static',
-        'route' => 'admin.static.gruppiMerceologicis.index',
-        'primary_navigation' => [
-            'associazione' => [
-                'title' => 'Associazione',
-                'secondary_navigation' => [
+    'comunicatiStampa' => [
+        'title' => 'Comunicati stampa',
+        'module' => true,
+    ],
 
-                    'chiSiamo' => [
-                        'title' => 'Chi siamo',
-                        'module' => true,
-                    ],
-                    'storia' => [
-                        'title' => 'Storia',
-                        'module' => true,
-                    ],
-                    'organigramma' => [
-                        'title' => 'Organigramma',
-                        'module' => true,
-                    ],
-                ],
-            ],
-            'gruppiMerceologicis' => [
-                'title' => 'Gruppi merceologici',
+    'indici' => [
+        'title' => 'Indici',
+        'module' => true,
+    ],
+
+    'settings' => [
+        'title' => 'Impostazioni',
+        'route' => 'admin.settings.seoData.index',
+        'primary_navigation' => [
+            'seoData' => [
+                'title' => 'SEO',
                 'module' => true,
             ],
-            'servizi' => [
-                'title' => 'Servizi',
+            'metadata' => [
+                'title' => 'Metadata',
                 'module' => true,
             ],
-            'contatti' => [
-                'title' => 'Contatti',
-                'module' => true,
-            ],
-            'registrazione' => [
-                'title' => 'Registrazione',
-                'module' => true,
-            ],
+
             'privacy' => [
                 'title' => 'Privacy',
                 'secondary_navigation' => [
@@ -65,38 +98,4 @@ return [
         ],
     ],
 
-    'content' => [
-        'title' => 'Contenuti',
-        'route' => 'admin.content.pubblicazioni.index',
-        'primary_navigation' => [
-            'pubblicazioni' => [
-                'title' => 'Pubblicazioni',
-                'module' => true,
-            ],
-            'indici' => [
-                'title' => 'Indici',
-                'module' => true,
-            ],
-
-            'comunicatiStampa' => [
-                'title' => 'Comunicati stampa',
-                'module' => true,
-            ],
-        ],
-    ],
-
-    'settings' => [
-        'title' => 'Impostazioni',
-        'route' => 'admin.settings.seoData.index',
-        'primary_navigation' => [
-            'seoData' => [
-                'title' => 'SEO',
-                'module' => true,
-            ],
-            'metadata' => [
-                'title' => 'Metadata',
-                'module' => true,
-            ],
-        ],
-    ],
 ];

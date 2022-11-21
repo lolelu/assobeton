@@ -27,7 +27,7 @@ class CreateMembersTables extends Migration
             $table->string('linkedin', 200)->nullable();
 
             $table->string('region')->nullable();
-            $table->string('group')->nullable();
+
             $table->string('type')->nullable();
 
 
@@ -42,18 +42,6 @@ class CreateMembersTables extends Migration
         Schema::create('member_slugs', function (Blueprint $table) {
             createDefaultSlugsTableFields($table, 'member');
         });
-
-        // related content table, holds many to many association between 2 tables
-        Schema::create('member_gruppi_merceologici', function (Blueprint $table) {
-            createDefaultRelationshipTableFields($table, 'member', 'gruppi_merceologici');
-
-            // will add the following inscructions to your migration file
-            // $table->integer("{$table1NameSingular}_id")->unsigned();
-            // $table->foreign("{$table1NameSingular}_id")->references('id')->on($table1NamePlural)->onDelete('cascade');
-            // $table->integer("{$table2NameSingular}_id")->unsigned();
-            // $table->foreign("{$table2NameSingular}_id")->references('id')->on($table2NamePlural)->onDelete('cascade');
-            // $table->index(["{$table2NameSingular}_id", "{$table1NameSingular}_id"]);
-        });
     }
 
     public function down()
@@ -61,7 +49,5 @@ class CreateMembersTables extends Migration
 
         Schema::dropIfExists('member_slugs');
         Schema::dropIfExists('members');
-
-        Schema::dropIfExists('member_gruppiMerceologici');
     }
 }

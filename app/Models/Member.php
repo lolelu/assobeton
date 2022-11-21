@@ -26,13 +26,15 @@ class Member extends Model implements Sortable
         'linkedin',
         'address',
         'region',
-        'group',
+
         'type',
     ];
+
 
     public $slugAttributes = [
         'title',
     ];
+
 
     public $mediasParams = [
         'logo' => [

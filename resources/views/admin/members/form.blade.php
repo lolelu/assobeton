@@ -1,30 +1,30 @@
-@extends('twill::layouts.form')
+@extends('twill::layouts.form', [
+    'additionalFieldsets' => [['fieldset' => 'attributes', 'label' => 'Attributes'], ['fieldset' => 'media', 'label' => 'Media']],
+])
 
 @php
-    
-    // TODO: Add the following to the Twill config file
-    $groups = [['value' => 'blocchi_e_pavimenti', 'label' => 'Blocchi e pavimenti'], ['value' => 'cabine_elettriche', 'label' => 'Cabine elettriche'], ['value' => 'calcestruzzo_cellulare', 'label' => 'Calcestruzzo cellulare'], ['value' => 'fibrocemento', 'label' => 'Fibrocemento'], ['value' => 'inserti', 'label' => 'Inserti'], ['value' => 'pali', 'label' => 'Pali'], ['value' => 'solai_e_doppia_lastra', 'label' => 'Solai e doppia lastra'], ['value' => 'strutture', 'label' => 'Strutture'], ['value' => 'traverse', 'label' => 'Traverse'], ['value' => 'tubi_a_bassa_pressione', 'label' => 'Tubi a bassa pressione'], ['value' => 'tubi_ad_alta_pressione', 'label' => 'Tubi ad alta pressione']];
+    //tutto ciò va spostato in un file di configurazione a parte
     $regioni = [
-        ['value' => 'abruzzo', 'label' => 'Abruzzo'],
-        ['value' => 'basilicata', 'label' => 'Basilicata'],
-        ['value' => 'calabria', 'label' => 'Calabria'],
-        ['value' => 'campania', 'label' => 'Campania'],
-        ['value' => 'emilia-romagna', 'label' => 'Emilia-Romagna'],
-        ['value' => 'friuli-venezia-giulia', 'label' => 'Friuli-Venezia Giulia'],
-        ['value' => 'lazio', 'label' => 'Lazio'],
-        ['value' => 'liguria', 'label' => 'Liguria'],
-        ['value' => 'lombardia', 'label' => 'Lombardia'],
-        ['value' => 'marche', 'label' => 'Marche'],
-        ['value' => 'molise', 'label' => 'Molise'],
-        ['value' => 'piemonte', 'label' => 'Piemonte'],
-        ['value' => 'puglia', 'label' => 'Puglia'],
-        ['value' => 'sardegna', 'label' => 'Sardegna'],
-        ['value' => 'sicilia', 'label' => 'Sicilia'],
-        ['value' => 'toscana', 'label' => 'Toscana'],
-        ['value' => 'trentino-alto-adige', 'label' => 'Trentino-Alto Adige'],
-        ['value' => 'umbria', 'label' => 'Umbria'],
-        ['value' => 'valle-aosta', 'label' => 'Valle d\'Aosta'],
-        ['value' => 'veneto', 'label' => 'Veneto'],
+        ['value' => 'Abruzzo', 'label' => 'Abruzzo'],
+        ['value' => 'Basilicata', 'label' => 'Basilicata'],
+        ['value' => 'Calabria', 'label' => 'Calabria'],
+        ['value' => 'Campania', 'label' => 'Campania'],
+        ['value' => 'Emilia Romagna', 'label' => 'Emilia-Romagna'],
+        ['value' => 'Friuli-Venezia Giulia', 'label' => 'Friuli-Venezia Giulia'],
+        ['value' => 'Lazio', 'label' => 'Lazio'],
+        ['value' => 'Liguria', 'label' => 'Liguria'],
+        ['value' => 'Lombardia', 'label' => 'Lombardia'],
+        ['value' => 'Marche', 'label' => 'Marche'],
+        ['value' => 'Molise', 'label' => 'Molise'],
+        ['value' => 'Piemonte', 'label' => 'Piemonte'],
+        ['value' => 'Puglia', 'label' => 'Puglia'],
+        ['value' => 'Sardegna', 'label' => 'Sardegna'],
+        ['value' => 'Sicilia', 'label' => 'Sicilia'],
+        ['value' => 'Toscana', 'label' => 'Toscana'],
+        ['value' => 'Trentino-Alto Adige', 'label' => 'Trentino-Alto Adige'],
+        ['value' => 'Umbria', 'label' => 'Umbria'],
+        ['value' => 'Valle d\'Aosta', 'label' => 'Valle d\'Aosta'],
+        ['value' => 'Veneto', 'label' => 'Veneto'],
     ];
     $types = [['value' => 'ordinari', 'label' => 'Ordinari'], ['value' => 'aggregati', 'label' => 'Aggregati'], ['value' => 'aggregati_di_gruppo', 'label' => 'Aggregati di gruppo'], ['value' => 'professionista', 'label' => 'Professionista']];
 @endphp
@@ -32,18 +32,19 @@
 @section('contentFields')
 
 
-
-    @formField('browser', [
-    'moduleName' => 'static.gruppiMerceologicis',
-    'name' => 'gruppiMerceologici',
-    'label' => 'Gruppo merceologico',
-    'max' => 4,
-    ])
-
     @formField('input', [
     'name' => 'title',
     'label' => 'Nome',
     'maxlength' => 200,
+    'required' => true
+    ])
+
+    @formField('browser', [
+    'moduleName' => 'gruppiMerceologicis',
+    'name' => 'gruppiMerceologici',
+    'label' => 'Gruppo merceologico',
+
+    'max' => 1,
     'required' => true
     ])
 
@@ -55,13 +56,6 @@
     'required' => true
     ])
 
-    @formField('select', [
-    'name' => 'group',
-    'label' => 'Gruppo merceologico',
-    'placeholder' => 'Seleziona un gruppo merceologico',
-    'options' => $groups,
-    'required' => true
-    ])
 
     @formField('select', [
     'name' => 'type',
@@ -71,6 +65,37 @@
     'required' => true
     ])
 
+
+
+
+
+
+@stop
+
+
+@section('fieldsets')
+
+    @formFieldset(['id' => 'media', 'title' => 'Media', 'open' => false])
+
+    @formField('medias', [
+    'name' => 'logo',
+    'label' => 'Logo',
+    'note' => 'Dimensione consigliata 800x800px',
+    'max' => 1,
+    'required' => true
+    ])
+
+    @formField('medias', [
+    'name' => 'carousel',
+    'label' => 'Carosello',
+    'note' => 'Dimensione consigliata 1920x1080px',
+    'max' => 5,
+    'required' => false
+    ])
+
+    @endformFieldset
+
+    @formFieldset(['id' => 'attributes', 'title' => 'Attributes', 'open' => false])
 
     @formField('wysiwyg', [
     'name' => 'description',
@@ -99,23 +124,6 @@
     'editSource' => true,
     'note' => 'Inserisci la descrizione dell\'azienda'
     ])
-
-    @formField('medias', [
-    'name' => 'logo',
-    'label' => 'Logo',
-    'note' => 'Dimensione consigliata 800x800px',
-    'max' => 1,
-    'required' => true
-    ])
-
-    @formField('medias', [
-    'name' => 'carousel',
-    'label' => 'Carosello',
-    'note' => 'Dimensione consigliata 1920x1080px',
-    'max' => 5,
-    'required' => false
-    ])
-
     @formField('input', [
     'name' => 'website',
     'label' => 'Sito web',
@@ -144,12 +152,14 @@
     'required' => false
     ])
 
-
     @formField('input', [
     'name' => 'linkedin',
     'label' => 'Profilo Linkedin',
     'maxlength' => 200,
     'required' => false
     ])
+
+    @endformFieldset
+
 
 @stop

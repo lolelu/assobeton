@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SociController;
 use App\Http\Controllers\NewsEventiController;
+use App\Http\Controllers\GruppiMerceologiciController;
+use App\Models\GruppiMerceologici;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,16 @@ use App\Http\Controllers\NewsEventiController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/members', [SociController::class, 'index'])->middleware(['auth', 'verified'])->name('members.index');
-Route::get('/members/{slug}', [SociController::class, 'show'])->middleware(['auth', 'verified'])->name('members.show');
+Route::get('/soci', [SociController::class, 'index'])->middleware(['auth', 'verified'])->name('soci.index');
+Route::get('/soci/{slug}', [SociController::class, 'show'])->middleware(['auth', 'verified'])->name('soci.show');
 
-Route::get('/news_events', [NewsEventiController::class, 'index'])->middleware(['auth', 'verified'])->name('news_events.index');
-Route::get('/news_events/{slug}', [NewsEventiController::class, 'show'])->middleware(['auth', 'verified'])->name('news_events.show');
+Route::get('/news_eventi', [NewsEventiController::class, 'index'])->middleware(['auth', 'verified'])->name('news_eventi.index');
+Route::get('/news_eventi/{slug}', [NewsEventiController::class, 'show'])->middleware(['auth', 'verified'])->name('news_eventi.show');
+
+Route::get('/gruppi_merceologici', [GruppiMerceologiciController::class, 'index'])->middleware(['auth', 'verified'])->name('gruppi_merceologici.index');
+Route::get('/gruppi_merceologici/{slug}', [GruppiMerceologiciController::class, 'show'])->middleware(['auth', 'verified'])->name('gruppi_merceologici.show');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

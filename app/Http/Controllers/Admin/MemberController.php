@@ -22,16 +22,20 @@ class MemberController extends BaseModuleController
 
             ],
         ],
+
+        'relatedBrowserFieldName' => [ // related browser column
+            'title' => 'Gruppo',
+            'field' => 'title',
+            'relatedBrowser' => 'gruppiMerceologici',
+        ],
+
+
         'title' => [
             'title' => 'Nome',
             'field' => 'title',
             'sort' => true,
         ],
-        'group' => [
-            'title' => 'Gruppo',
-            'field' => 'group',
-            'sort' => true,
-        ],
+
 
         'region' => [
             'title' => 'Regione',

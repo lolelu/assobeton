@@ -8,6 +8,5 @@ class GruppiMerceologiciController extends BaseModuleController
 {
     protected $moduleName = 'gruppiMerceologicis';
 
-    protected $indexOptions = [
-    ];
+    protected $indexOptions = [];
 }
