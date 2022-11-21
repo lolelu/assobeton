@@ -16,6 +16,8 @@ class EventRepository extends ModuleRepository
 {
     use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions, HandleTags;
 
+    protected $relatedBrowsers = ['groups'];
+
     public function __construct(Event $model)
     {
         $this->model = $model;
@@ -25,13 +27,13 @@ class EventRepository extends ModuleRepository
 
     public function allPublished()
     {
-        return $this->model->published()->orderBy('title')->get();
+        return $this->model->published()->orderBy('position')->get();
     }
 
     // all published non private 
 
     public function allPublishedNonPrivate()
     {
-        return $this->model->published()->where('private', 0)->orderBy('title')->get();
+        return $this->model->published()->where('private', 0)->orderBy('position')->get();
     }
 }

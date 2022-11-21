@@ -13,13 +13,13 @@ return [
 
     'static' => [
         'title' => 'Static',
-        'route' => 'admin.static.associazione.chi_siamo.index',
+        'route' => 'admin.static.gruppiMerceologicis.index',
         'primary_navigation' => [
             'associazione' => [
                 'title' => 'Associazione',
                 'secondary_navigation' => [
 
-                    'chi_siamo' => [
+                    'chiSiamo' => [
                         'title' => 'Chi siamo',
                         'module' => true,
                     ],
@@ -33,7 +33,7 @@ return [
                     ],
                 ],
             ],
-            'gruppi_merceologici' => [
+            'gruppiMerceologicis' => [
                 'title' => 'Gruppi merceologici',
                 'module' => true,
             ],
@@ -78,7 +78,7 @@ return [
                 'module' => true,
             ],
 
-            'comunicati_stampa' => [
+            'comunicatiStampa' => [
                 'title' => 'Comunicati stampa',
                 'module' => true,
             ],
@@ -87,9 +87,9 @@ return [
 
     'settings' => [
         'title' => 'Impostazioni',
-        'route' => 'admin.settings.seo_data.index',
+        'route' => 'admin.settings.seoData.index',
         'primary_navigation' => [
-            'seo_data' => [
+            'seoData' => [
                 'title' => 'SEO',
                 'module' => true,
             ],

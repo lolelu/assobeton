@@ -12,17 +12,17 @@ Route::module('members');
 Route::module('events');
 
 Route::group(['prefix' => 'settings'], function () {
-    Route::module('seo_data');
+    Route::module('seoData');
     Route::module('metadata');
 });
 
 Route::group(['prefix' => 'static'], function () {
     Route::group(['prefix' => 'associazione'], function () {
-        Route::module('chi_siamo');
+        Route::module('chiSiamo');
         Route::module('storia');
         Route::module('organigramma');
     });
-    Route::module('gruppi_merceologici');
+    Route::module('gruppiMerceologicis');
     Route::module('servizi');
     Route::module('contatti');
     Route::module('registrazione');
@@ -36,6 +36,6 @@ Route::group(['prefix' => 'content'], function () {
     Route::module('pubblicazioni');
     Route::module('indici');
 
-    Route::module('comunicati_stampa');
+    Route::module('comunicatiStampa');
     //Route::module('circolari');
 });

@@ -33,7 +33,12 @@
 
 
 
-
+    @formField('browser', [
+    'moduleName' => 'static.gruppiMerceologicis',
+    'name' => 'gruppiMerceologici',
+    'label' => 'Gruppo merceologico',
+    'max' => 4,
+    ])
 
     @formField('input', [
     'name' => 'title',

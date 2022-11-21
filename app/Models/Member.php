@@ -7,11 +7,13 @@ use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\HasBlocks;
 use A17\Twill\Models\Behaviors\Sortable;
+use A17\Twill\Models\Behaviors\HasRelated;
 use A17\Twill\Models\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Member extends Model implements Sortable
 {
-    use HasSlug, HasMedias, HasPosition;
+    use HasSlug, HasMedias, HasPosition, HasFactory, HasRelated;
 
     protected $fillable = [
         'published',
@@ -21,7 +23,7 @@ class Member extends Model implements Sortable
         'email',
         'phone',
         'website',
-        //'linkedin',
+        'linkedin',
         'address',
         'region',
         'group',

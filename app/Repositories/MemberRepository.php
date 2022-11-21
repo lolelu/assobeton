@@ -5,12 +5,29 @@ namespace App\Repositories;
 use A17\Twill\Repositories\Behaviors\HandleBlocks;
 use A17\Twill\Repositories\Behaviors\HandleSlugs;
 use A17\Twill\Repositories\Behaviors\HandleMedias;
+use A17\Twill\Repositories\Behaviors\HandleBrowsers;
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\Member;
 
 class MemberRepository extends ModuleRepository
 {
-    use HandleSlugs, HandleMedias;
+    use HandleSlugs, HandleMedias, HandleBrowsers;
+
+    protected $relatedBrowsers = ['gruppiMerceologicis'];
+
+    public function afterSave($object, $fields)
+    {
+        $this->updateBrowser($object, $fields, 'gruppiMerceologicis');
+        parent::afterSave($object, $fields);
+    }
+
+    public function getFormFields($object)
+    {
+        $fields = parent::getFormFields($object);
+        $fields['browsers']['gruppiMerceologicis'] = $this->getFormFieldsForBrowser($object, 'gruppiMerceologicis');
+        return $fields;
+    }
+
 
     public function __construct(Member $model)
     {

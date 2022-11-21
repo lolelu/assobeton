@@ -5,34 +5,21 @@ namespace App\Models;
 use A17\Twill\Models\Behaviors\HasBlocks;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasMedias;
-use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
-use Database\Factories\EventFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Event extends Model implements Sortable
+class GruppiMerceologici extends Model implements Sortable
 {
-    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition, HasFactory;
-
-
-    protected static function newFactory()
-    {
-        return EventFactory::new();
-    }
-
+    use HasBlocks, HasSlug, HasMedias, HasRevisions, HasPosition;
 
     protected $fillable = [
         'published',
         'title',
-        'subtitle',
         'description',
-        'thematic',
-        'private',
         'position',
-        'tags'
+        'subtitle'
 
     ];
 
@@ -40,17 +27,24 @@ class Event extends Model implements Sortable
         'title',
     ];
 
-    public $filesParams = ['file'];
-
     public $mediasParams = [
-        'cover' => [
+        'thumbnail' => [
             'default' => [
                 [
                     'name' => 'default',
                     'ratio' => 1,
                 ],
             ],
-
         ],
+        'carousel' => [
+            'default' => [
+                [
+                    'name' => 'default',
+                    'ratio' => 16 / 9,
+                    'max' => 5,
+                ],
+            ],
+        ],
+
     ];
 }

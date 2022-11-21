@@ -16,7 +16,7 @@ class MemberRequest extends Request
         return [
             'title' => 'required|max:255|string',
             'email' => 'required|email',
-            'phone' => 'required|numeric',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'website' => 'required|url',
             //'linkedin' => 'required|url',
             'address' => 'required',

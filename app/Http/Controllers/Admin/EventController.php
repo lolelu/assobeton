@@ -8,6 +8,12 @@ class EventController extends BaseModuleController
 {
     protected $moduleName = 'events';
 
+    protected $titleColumnKey = 'title';
+
+    protected $indexOptions = [
+        'reorder' => true,
+    ];
+
     protected $indexColumns = [
         'logo' => [
             'thumb' => true,
