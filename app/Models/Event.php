@@ -12,10 +12,12 @@ use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
 use Database\Factories\EventFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use A17\Twill\Models\Behaviors\HasRelated;
+
 
 class Event extends Model implements Sortable
 {
-    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition, HasFactory;
+    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition, HasFactory, HasRelated;
 
 
     protected static function newFactory()
@@ -32,7 +34,9 @@ class Event extends Model implements Sortable
         'thematic',
         'private',
         'position',
-        'tags'
+        'tags',
+        'publish_start_date',
+        'publish_end_date',
 
     ];
 

@@ -6,11 +6,7 @@
     'label' => 'Descrizione',
     'maxlength' => 100
     ])
-    @formField('input', [
-    'name' => 'title',
-    'label' => 'Titolo',
-    'maxlength' => 100
-    ])
+
     @formField('input', [
     'name' => 'subtitle',
     'label' => 'Sottotitolo',

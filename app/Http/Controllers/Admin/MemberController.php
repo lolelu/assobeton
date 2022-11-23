@@ -8,6 +8,8 @@ class MemberController extends BaseModuleController
 {
     protected $moduleName = 'members';
 
+    protected $permalinkBase = 'soci';
+
     protected $titleColumnKey = 'title';
 
     protected $indexOptions = [];

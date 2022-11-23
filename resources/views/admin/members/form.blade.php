@@ -32,13 +32,6 @@
 @section('contentFields')
 
 
-    @formField('input', [
-    'name' => 'title',
-    'label' => 'Nome',
-    'maxlength' => 200,
-    'required' => true
-    ])
-
     @formField('browser', [
     'moduleName' => 'gruppiMerceologicis',
     'name' => 'gruppiMerceologici',

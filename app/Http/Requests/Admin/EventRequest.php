@@ -18,10 +18,11 @@ class EventRequest extends Request
             'title' => 'required|max:200|string',
             'subtitle' => 'required|max:200|string',
             'description' => 'required|max:500|string',
-            'thematic' => 'required|max:200|string',
 
 
-            'blocks' => 'validBlocks'
+
+            'blocks' => 'validBlocks',
+            'browsers.filterTopic' => 'required',
         ];
     }
 }

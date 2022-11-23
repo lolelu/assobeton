@@ -15,6 +15,8 @@ class Member extends Model implements Sortable
 {
     use HasSlug, HasMedias, HasPosition, HasFactory, HasRelated;
 
+
+
     protected $fillable = [
         'published',
         'title',

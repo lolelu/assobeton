@@ -15,6 +15,8 @@ class CreateEventsTables extends Migration
             $table->string('title', 200)->nullable();
             $table->string('subtitle', 200)->nullable();
             $table->text('description')->nullable();
+
+            // TODO: da rimuovere
             $table->string('thematic', 200)->nullable();
 
             $table->timestamp('publish_start_date')->nullable();

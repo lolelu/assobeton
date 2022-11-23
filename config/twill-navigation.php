@@ -23,6 +23,13 @@ return [
         ],
     ],
 
+    'filterTopics' => [
+
+        'title' => 'Filtri',
+        'module' => true,
+
+    ],
+
     'members' => [
         'title' => 'Soci',
         'module' => true,

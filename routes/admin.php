@@ -13,6 +13,8 @@ Route::group(['prefix' => 'associazione'], function () {
     Route::module('organigramma');
 });
 
+Route::module('filterTopics');
+
 Route::module('members');
 Route::module('gruppiMerceologicis');
 Route::module('servizi');

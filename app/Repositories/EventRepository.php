@@ -16,7 +16,7 @@ class EventRepository extends ModuleRepository
 {
     use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions, HandleTags;
 
-    protected $relatedBrowsers = ['groups'];
+    protected $relatedBrowsers = ['filterTopic'];
 
     public function __construct(Event $model)
     {
@@ -25,15 +25,54 @@ class EventRepository extends ModuleRepository
 
     // all published events
 
+    // all published before today or without publish date
+
+    // public function allPublishedOld()
+    // {
+    //     return $this->model
+    //         ->where('published', true)
+    //         ->where([
+    //             ['publish_start_date', '<=', date('Y-m-d')],
+    //             ['publish_end_date', '>=', date('Y-m-d')],
+    //         ])
+    //         ->orWhereNull('publish_start_date')
+    //         ->orWhereNull('publish_end_date')
+
+    //         ->orderBy('publish_start_date', 'desc')
+    //         ->get();
+    // }
+
     public function allPublished()
     {
-        return $this->model->published()->orderBy('position')->get();
+
+        return $this->model
+            ->where('published', true)
+            ->where([
+
+                ['publish_start_date', '<=', date('Y-m-d H:i:s')],
+                ['publish_end_date', '>=', date('Y-m-d H:i:s')],
+            ])
+            ->orWhere(function ($query) {
+                $query->whereNull('publish_start_date')
+                    ->whereNull('publish_end_date');
+            })
+            ->orWhere(function ($query) {
+                $query->whereNull('publish_start_date')
+                    ->where('publish_end_date', '>=', date('Y-m-d H:i:s'));
+            })
+            ->orWhere(function ($query) {
+                $query->where('publish_start_date', '<=', date('Y-m-d H:i:s'))
+                    ->whereNull('publish_end_date');
+            })
+            ->orderBy('publish_start_date', 'desc')
+            ->get();
     }
+
 
     // all published non private 
 
     public function allPublishedNonPrivate()
     {
-        return $this->model->published()->where('private', 0)->orderBy('position')->get();
+        return $this->allPublished()->where('private', false)->get();
     }
 }

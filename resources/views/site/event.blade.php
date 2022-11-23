@@ -6,13 +6,13 @@
     </x-slot>
     <div class="mx-auto container bg-gray-50">
 
-        {{ $event->title }}
-        {!! $event->description !!}
+        {{ $item->title }}
+        {!! $item->description !!}
 
-        {!! $event->renderNamedBlocks('Contenuto') !!}
+        {!! $item->renderNamedBlocks('Contenuto') !!}
 
 
-        {!! $event->renderNamedBlocks('Files') !!}
+        {!! $item->renderNamedBlocks('Files') !!}
 
 
     </div>
