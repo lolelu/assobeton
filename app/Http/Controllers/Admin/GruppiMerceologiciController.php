@@ -8,5 +8,7 @@ class GruppiMerceologiciController extends BaseModuleController
 {
     protected $moduleName = 'gruppiMerceologicis';
 
+    protected $permalinkBase = 'gruppi_merceologici';
+
     protected $indexOptions = [];
 }

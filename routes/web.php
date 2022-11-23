@@ -28,7 +28,11 @@ Route::get('/', function () {
 Route::get('/soci', [SociController::class, 'index'])->middleware(['auth', 'verified'])->name('soci.index');
 Route::get('/soci/{slug}', [SociController::class, 'show'])->middleware(['auth', 'verified'])->name('soci.show');
 
+
+
 Route::get('/news_eventi', [NewsEventiController::class, 'index'])->middleware(['auth', 'verified'])->name('news_eventi.index');
+Route::get('/news_eventi/featured', [NewsEventiController::class, 'featured'])->middleware(['auth', 'verified'])->name('news_eventi.featured');
+
 Route::get('/news_eventi/{slug}', [NewsEventiController::class, 'show'])->middleware(['auth', 'verified'])->name('news_eventi.show');
 
 Route::get('/gruppi_merceologici', [GruppiMerceologiciController::class, 'index'])->middleware(['auth', 'verified'])->name('gruppi_merceologici.index');

@@ -2,15 +2,16 @@
 
 namespace App\Repositories;
 
-use A17\Twill\Repositories\Behaviors\HandleBlocks;
-use A17\Twill\Repositories\Behaviors\HandleSlugs;
-use A17\Twill\Repositories\Behaviors\HandleMedias;
-use A17\Twill\Repositories\Behaviors\HandleFiles;
-use A17\Twill\Repositories\Behaviors\HandleRevisions;
-use A17\Twill\Repositories\Behaviors\HandleTags;
-
-use A17\Twill\Repositories\ModuleRepository;
 use App\Models\Event;
+use A17\Twill\Models\Feature;
+use A17\Twill\Repositories\ModuleRepository;
+use A17\Twill\Repositories\Behaviors\HandleTags;
+use A17\Twill\Repositories\Behaviors\HandleFiles;
+use A17\Twill\Repositories\Behaviors\HandleSlugs;
+
+use A17\Twill\Repositories\Behaviors\HandleBlocks;
+use A17\Twill\Repositories\Behaviors\HandleMedias;
+use A17\Twill\Repositories\Behaviors\HandleRevisions;
 
 class EventRepository extends ModuleRepository
 {
@@ -41,6 +42,7 @@ class EventRepository extends ModuleRepository
     //         ->orderBy('publish_start_date', 'desc')
     //         ->get();
     // }
+
 
     public function allPublished()
     {
@@ -73,6 +75,28 @@ class EventRepository extends ModuleRepository
 
     public function allPublishedNonPrivate()
     {
-        return $this->allPublished()->where('private', false)->get();
+        return $this->allPublished()->whereIn('private', false);
+    }
+
+    //featured events
+
+    public function allPrimaryFeatured()
+    {
+
+        $featured = Feature::whereIn('bucket_key', ['home_primary_feature'])->get();
+
+        $events = $this->allPublishedNonPrivate()->whereIn('id', $featured->pluck('featured_id'))->sortByDesc('publish_start_date');
+
+        return $events;
+    }
+
+    public function allSecondaryFeatured()
+    {
+
+        $featured = Feature::whereIn('bucket_key', ['home_secondary_features'])->get();
+
+        $events = $this->allPublishedNonPrivate()->whereIn('id', $featured->pluck('featured_id'))->sortByDesc('publish_start_date');
+
+        return $events;
     }
 }

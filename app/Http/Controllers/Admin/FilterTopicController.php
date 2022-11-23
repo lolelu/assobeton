@@ -8,6 +8,7 @@ class FilterTopicController extends BaseModuleController
 {
     protected $moduleName = 'filterTopics';
 
+
     protected $indexOptions = [
         'permalink' => false,
     ];

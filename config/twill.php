@@ -1,9 +1,102 @@
 <?php
 return [
+
+
+    'available_user_locales' => [
+        'it',
+        'en',
+        'fr',
+        'de'
+    ],
+
+    'locale' => 'it',
+    'fallback_locale' => 'en',
+
+
     'enabled' => [
         'file-library' => true,
         'media-library' => true,
+        'buckets' => true,
     ],
+
+    'dashboard' => [
+
+
+
+
+
+        'modules' => [
+            'events' => [ // module name if you added a morph map entry for it, otherwise FQCN of the model (eg. App\Models\Project)
+                'name' => 'events', // module name
+                'label' => 'News e Eventi', // optional, if the name of your module above does not work as a label
+                'label_singular' => 'News o Evento',
+                'routePrefix' => 'contenuti.eventi', // optional, if the automated singular version of your name/label above does not work as a label
+                // optional, if the module is living under a specific routes group
+                'count' => true, // show total count with link to index of this module
+                'create' => true, // show link in create new dropdown
+                'activity' => true, // show activities on this module in activities list
+                'draft' => true, // show drafts of this module for current user 
+                'search' => true, // show results for this module in global search
+            ],
+            'members' => [ // module name if you added a morph map entry for it, otherwise FQCN of the model (eg. App\Models\Project)
+                'name' => 'members', // module name
+                'label' => 'Soci', // optional, if the name of your module above does not work as a label
+                'label_singular' => 'Socio', // optional, if the automated singular version of your name/label above does not work as a label
+                // optional, if the module is living under a specific routes group
+                'count' => true, // show total count with link to index of this module
+                'create' => true, // show link in create new dropdown
+                'activity' => true, // show activities on this module in activities list
+                'draft' => true, // show drafts of this module for current user 
+                'search' => true, // show results for this module in global search
+            ],
+
+        ],
+
+
+
+    ],
+
+    'bucketsRoutes' => [
+        'eventsBucket' => 'contenuti.eventi',
+    ],
+
+    'buckets' => [
+
+        'eventsBucket' => [
+            'name' => 'In primo piano',
+
+            'buckets' => [
+                'home_primary_feature' => [
+                    'name' => 'News più importante',
+                    'bucketables' => [
+                        [
+                            'module' => 'events',
+                            'name' => 'events',
+                            'scopes' => ['published' => true],
+
+                        ],
+                    ],
+                    'max_items' => 1,
+
+                ],
+                'home_secondary_features' => [
+                    'name' => 'News secondarie',
+                    'bucketables' => [
+                        [
+                            'module' => 'events',
+                            'name' => 'events',
+                            'scopes' => ['published' => true],
+                        ],
+                    ],
+                    'max_items' => 10,
+                ],
+            ],
+        ],
+    ],
+
+
+
+
     'block_editor' => [
         'files' => [
             'file'

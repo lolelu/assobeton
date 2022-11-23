@@ -7,6 +7,8 @@ use Inertia\Inertia;
 
 use App\Repositories\EventRepository;
 
+use \A17\Twill\Models\Feature;
+
 class NewsEventiController extends Controller
 {
     public function __construct(EventRepository $eventRepository)
@@ -33,6 +35,22 @@ class NewsEventiController extends Controller
         }
         return view('pages.events.show', [
             'event' => $event,
+        ]);
+    }
+
+    public function featured()
+    {
+        $primaryFeatured = $this->eventRepository->allPrimaryFeatured();
+
+        $secondaryFeatured = $this->eventRepository->allSecondaryFeatured();
+
+
+        $events = $this->eventRepository->allPublished();
+
+        return view('pages.events.featured', [
+            'events' => $events,
+            'primaryFeatured' => $primaryFeatured,
+            'secondaryFeatured' => $secondaryFeatured,
         ]);
     }
     //

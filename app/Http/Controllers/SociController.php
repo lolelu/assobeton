@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+
+
+
 class SociController extends Controller
 {
 
@@ -16,6 +19,9 @@ class SociController extends Controller
     {
         $this->repository = $repository;
     }
+
+
+
 
 
     public function index()
