@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use A17\Twill\Http\Requests\Admin\Request;
 
-class GruppiMerceologiciRequest extends Request
+class PubblicazioniRequest extends Request
 {
     public function rulesForCreate()
     {
@@ -15,5 +15,6 @@ class GruppiMerceologiciRequest extends Request
     {
         return [];
     }
+
     // TODO: fill it
 }

@@ -2,28 +2,29 @@
 
 namespace App\Repositories;
 
-use App\Models\Event;
 use A17\Twill\Models\Feature;
-use A17\Twill\Repositories\ModuleRepository;
-use A17\Twill\Repositories\Behaviors\HandleTags;
-use A17\Twill\Repositories\Behaviors\HandleFiles;
-use A17\Twill\Repositories\Behaviors\HandleSlugs;
 
 use A17\Twill\Repositories\Behaviors\HandleBlocks;
+use A17\Twill\Repositories\Behaviors\HandleSlugs;
 use A17\Twill\Repositories\Behaviors\HandleMedias;
+use A17\Twill\Repositories\Behaviors\HandleFiles;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
+use A17\Twill\Repositories\ModuleRepository;
+use App\Models\Pubblicazioni;
 
-class EventRepository extends ModuleRepository
+class PubblicazioniRepository extends ModuleRepository
 {
-    use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions, HandleTags;
+    use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions;
+
 
     protected $relatedBrowsers = ['filterTopic'];
 
-    public function __construct(Event $model)
+    public function __construct(Pubblicazioni $model)
     {
         $this->model = $model;
     }
 
+    // all published 
 
     public function allPublished()
     {
@@ -64,7 +65,7 @@ class EventRepository extends ModuleRepository
     public function allPrimaryFeatured()
     {
 
-        $featured = Feature::whereIn('bucket_key', ['events_primary_feature'])->get();
+        $featured = Feature::whereIn('bucket_key', ['pubblicazioni_primary_feature'])->get();
 
         $events = $this->allPublishedNonPrivate()->whereIn('id', $featured->pluck('featured_id'))->sortByDesc('publish_start_date');
 
@@ -74,7 +75,7 @@ class EventRepository extends ModuleRepository
     public function allSecondaryFeatured()
     {
 
-        $featured = Feature::whereIn('bucket_key', ['events_secondary_features'])->get();
+        $featured = Feature::whereIn('bucket_key', ['pubblicazioni_secondary_feature'])->get();
 
         $events = $this->allPublishedNonPrivate()->whereIn('id', $featured->pluck('featured_id'))->sortByDesc('publish_start_date');
 

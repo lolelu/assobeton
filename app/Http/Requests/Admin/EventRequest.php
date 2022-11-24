@@ -25,4 +25,5 @@ class EventRequest extends Request
             'browsers.filterTopic' => 'required',
         ];
     }
+    // TODO: fill it
 }

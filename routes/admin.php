@@ -28,17 +28,21 @@ Route::module('members');
 Route::group(['prefix' => 'contenuti'], function () {
     Route::group(['prefix' => 'eventi'], function () {
         Route::module('events');
+        Route::module('filterTopics');
     });
     Route::module('filterTopics');
 
     Route::group(['prefix' => 'pubblicazioni'], function () {
-        Route::module('pubblicazioni');
+        Route::module('pubblicazionis');
+        Route::module('filterTopics');
     });
     Route::group(['prefix' => 'comunicatiStampa'], function () {
         Route::module('comunicatiStampa');
+        Route::module('filterTopics');
     });
     Route::group(['prefix' => 'indici'], function () {
         Route::module('indici');
+        Route::module('filterTopics');
     });
 
     Route::group(['prefix' => 'circolari'], function () {

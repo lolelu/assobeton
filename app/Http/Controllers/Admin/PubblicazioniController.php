@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
 
-class EventController extends BaseModuleController
+class PubblicazioniController extends BaseModuleController
 {
-    protected $moduleName = 'events';
+    protected $moduleName = 'pubblicazionis';
 
-    protected $permalinkBase = 'news_eventi';
+    protected $permalinkBase = 'pubblicazioni';
 
     protected $titleColumnKey = 'title';
 
@@ -22,7 +22,7 @@ class EventController extends BaseModuleController
 
             'variant' => [
                 'role' => 'cover',
-                'crop' => 'default',
+                'crop' => 'mobile',
 
             ],
         ],
@@ -42,7 +42,6 @@ class EventController extends BaseModuleController
             'field' => 'subtitle',
             'sort' => true,
         ],
-
         'publish_start_date' => [
             'title' => 'Data di pubblicazione',
             'field' => 'publish_start_date',

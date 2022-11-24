@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'members' => 'App\Models\Member',
             'gruppiMerceologicis' => 'App\Models\GruppiMerceologici',
             'filterTopics' => 'App\Models\FilterTopic',
+            'pubblicazionis' => 'App\Models\Pubblicazioni',
         ]);
     }
 }

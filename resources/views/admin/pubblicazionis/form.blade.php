@@ -4,7 +4,6 @@
 
 
 @section('sideFieldset')
-
     @formField('checkbox' , [
     'name' => 'private',
     'label' => 'Riservato ai soci',
@@ -12,17 +11,9 @@
     'requireConfirmation' => true,
     'note' => 'Selezionando questa opzione l\'articolo sarà visibile solo ai soci'
     ])
-
 @endsection
 
 @section('contentFields')
-
-    @formField('files', [
-    'name' => 'file',
-    'label' => 'Allegato principale',
-    'note' => "Seleziona i file da allegare all\'articolo",
-    'required' => true,
-    ])
 
     @formField('browser', [
     'moduleName' => 'filterTopics',
@@ -58,7 +49,22 @@
     'rows' => 3
     ])
 
+    @formField('input', [
+    'name' => 'author',
+    'label' => 'Autore',
+    'maxlength' => 200,
+    'required' => true
+    ])
+
+
+    @formField('files', [
+    'name' => 'main_attachment',
+    'label' => 'Allegato principale',
+    ])
+
+
 @stop
+
 
 @section('fieldsets')
 
@@ -76,17 +82,17 @@
     @formFieldset(['id' => 'Allegati', 'title' => 'Allegati', 'open' => false])
 
 
-
     @formField('block_editor', [
     'name' => 'Files',
     'label' => 'Files',
     'max' => 10,
-    'note' => 'Seleziona i file da allegare all\'articolo',
+    'note' => 'Seleziona i file addizionali da allegare all\'articolo',
     'blocks' => [ 'file' ]
     ])
 
 
 
     @endformFieldset
+
 
 @stop

@@ -19,4 +19,5 @@ class FilterTopicRequest extends Request
 
         ];
     }
+    // TODO: fill it
 }

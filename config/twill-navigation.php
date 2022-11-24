@@ -1,31 +1,16 @@
 <?php
 
 return [
-
-
-
-    // 'events' => [
-    //     'route' => 'admin.eventi.events.index',
-    //     'title' => 'News e eventi',
-
-    //     'primary_navigation' => [
-    //         'featured' => [
-    //             'title' => 'Featured',
-    //         ],
-
-
-    //     ],
-    // ],
-    // 'events' => [
-    //     'title' => 'News e eventi',
-    //     'module' => true,
-    // ],
-
-
     'pagine' => [
         'title' => 'Pagine',
         'route' => 'admin.pagine.gruppiMerceologicis.index',
+
+
         'primary_navigation' => [
+            'homepage' => [
+                'title' => 'Homepage',
+                'module' => true,
+            ],
             'associazione' => [
                 'title' => 'Associazione',
                 'route' => 'admin.pagine.associazione.chiSiamo.index',
@@ -65,10 +50,7 @@ return [
                 'title' => 'Contatti',
                 'module' => true,
             ],
-            'homepage' => [
-                'title' => 'Homepage',
-                'module' => true,
-            ],
+
 
 
 
@@ -76,7 +58,7 @@ return [
     ],
 
     'members' => [
-        'title' => 'Membri',
+        'title' => 'Soci',
         'module' => true,
     ],
 
@@ -109,12 +91,16 @@ return [
 
             'pubblicazioni' => [
                 'title' => 'Pubblicazioni',
-                'route' => 'admin.contenuti.pubblicazioni.pubblicazioni.index',
+                'route' => 'admin.contenuti.pubblicazioni.pubblicazionis.index',
                 'secondary_navigation' => [
-                    'pubblicazioni' => [
+                    'pubblicazioniBucket' => [
+                        'title' => 'Home',
+                        'route' => 'admin.contenuti.pubblicazioni.pubblicazioniBucket',
+                    ],
+                    'pubblicazionis' => [
                         'title' => 'Pubblicazioni',
                         'moduel' => true,
-                        'route' => 'admin.contenuti.pubblicazioni.pubblicazioni.index',
+                        'route' => 'admin.contenuti.pubblicazioni.pubblicazionis.index',
                     ],
                 ],
             ],
@@ -157,57 +143,6 @@ return [
         ],
     ],
 
-
-
-
-
-    // 'filterTopics' => [
-
-    //     'title' => 'Filtri',
-    //     'module' => true,
-
-    // ],
-
-    // 'members' => [
-    //     'title' => 'Soci',
-    //     'module' => true,
-    // ],
-
-
-    // 'gruppiMerceologicis' => [
-    //     'title' => 'Gruppi merceologici',
-    //     'module' => true,
-    // ],
-
-    // 'servizi' => [
-    //     'title' => 'Servizi',
-    //     'module' => true,
-    // ],
-    // 'pubblicazioni' => [
-    //     'title' => 'Pubblicazioni',
-    //     'module' => true,
-    // ],
-
-
-    // 'registrazione' => [
-    //     'title' => 'Registrazione',
-    //     'module' => true,
-    // ],
-
-    // 'contatti' => [
-    //     'title' => 'Contatti',
-    //     'module' => true,
-    // ],
-
-    // 'comunicatiStampa' => [
-    //     'title' => 'Comunicati stampa',
-    //     'module' => true,
-    // ],
-
-    // 'indici' => [
-    //     'title' => 'Indici',
-    //     'module' => true,
-    // ],
 
     // 'settings' => [
     //     'title' => 'Impostazioni',

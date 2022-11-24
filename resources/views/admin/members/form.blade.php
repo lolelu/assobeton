@@ -33,7 +33,7 @@
 
 
     @formField('browser', [
-    'moduleName' => 'gruppiMerceologicis',
+    'moduleName' => 'pagine.gruppiMerceologicis',
     'name' => 'gruppiMerceologici',
     'label' => 'Gruppo merceologico',
 

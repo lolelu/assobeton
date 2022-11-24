@@ -49,6 +49,18 @@ return [
                 'draft' => true, // show drafts of this module for current user 
                 'search' => true, // show results for this module in global search
             ],
+            'pubblicazionis' => [ // module name if you added a morph map entry for it, otherwise FQCN of the model (eg. App\Models\Project)
+                'name' => 'pubblicazionis', // module name
+                'label' => 'Pubblicazioni', // optional, if the name of your module above does not work as a label
+                'label_singular' => 'Pubblicazione',
+                'routePrefix' => 'contenuti.pubblicazioni', // optional, if the automated singular version of your name/label above does not work as a label
+                // optional, if the module is living under a specific routes group
+                'count' => true, // show total count with link to index of this module
+                'create' => true, // show link in create new dropdown
+                'activity' => true, // show activities on this module in activities list
+                'draft' => true, // show drafts of this module for current user 
+                'search' => true, // show results for this module in global search
+            ],
 
         ],
 
@@ -58,6 +70,7 @@ return [
 
     'bucketsRoutes' => [
         'eventsBucket' => 'contenuti.eventi',
+        'pubblicazioniBucket' => 'contenuti.pubblicazioni',
     ],
 
     'buckets' => [
@@ -66,8 +79,8 @@ return [
             'name' => 'In primo piano',
 
             'buckets' => [
-                'home_primary_feature' => [
-                    'name' => 'News più importante',
+                'events_primary_feature' => [
+                    'name' => 'News/Evento più importante',
                     'bucketables' => [
                         [
                             'module' => 'events',
@@ -79,12 +92,43 @@ return [
                     'max_items' => 1,
 
                 ],
-                'home_secondary_features' => [
+                'events_secondary_features' => [
                     'name' => 'News secondarie',
                     'bucketables' => [
                         [
                             'module' => 'events',
                             'name' => 'events',
+                            'scopes' => ['published' => true],
+                        ],
+                    ],
+                    'max_items' => 10,
+                ],
+            ],
+        ],
+
+        'pubblicazioniBucket' => [
+            'name' => 'In primo piano',
+
+            'buckets' => [
+                'pubblicazioni_primary_feature' => [
+                    'name' => 'Pubblicazione più importante',
+                    'bucketables' => [
+                        [
+                            'module' => 'pubblicazionis',
+                            'name' => 'pubblicazionis',
+                            'scopes' => ['published' => true],
+
+                        ],
+                    ],
+                    'max_items' => 1,
+
+                ],
+                'pubblicazioni_secondary_features' => [
+                    'name' => 'Pubblicazioni secondarie',
+                    'bucketables' => [
+                        [
+                            'module' => 'pubblicazionis',
+                            'name' => 'pubblicazionis',
                             'scopes' => ['published' => true],
                         ],
                     ],
@@ -169,15 +213,4 @@ return [
 
     // TODO sposta nell .env
 
-    'file_library' => [
-        'disk' => 'twill_file_library',
-        'endpoint_type' => env('FILE_LIBRARY_ENDPOINT_TYPE', 's3'),
-        'cascade_delete' => env('FILE_LIBRARY_CASCADE_DELETE', false),
-        'local_path' => env('FILE_LIBRARY_LOCAL_PATH', 'uploads'),
-        'file_service' => env('FILE_LIBRARY_FILE_SERVICE', 'A17\Twill\Services\FileLibrary\Disk'),
-        'acl' => env('FILE_LIBRARY_ACL', 'public-read'),
-        'filesize_limit' => env('FILE_LIBRARY_FILESIZE_LIMIT', 50),
-        'allowed_extensions' => [],
-        'prefix_uuid_with_local_path' => false,
-    ],
 ];
