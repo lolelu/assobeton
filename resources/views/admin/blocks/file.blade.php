@@ -4,13 +4,13 @@
 @formField('input', [
 'name' => 'title',
 'label' => 'Nome file',
+'maxlength' => 100,
 ])
 
 @formField('input' , [
 'name' => 'description',
 'label' => 'Descrizione',
 'maxlength' => 200,
-'required' => false
 ])
 
 @formField('files', [

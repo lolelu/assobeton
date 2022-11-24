@@ -1,15 +1,15 @@
-@twillBlockTitle('Quote')
+@twillBlockTitle('Citazione')
 @twillBlockIcon('text')
 
 @formField('input', [
 'name' => 'quote',
 'type' => 'textarea',
-'label' => 'Quote text',
-'maxlength' => 250,
+'label' => 'Citazione',
+'maxlength' => 300,
 'rows' => 4
 ])
 
 @formField('input', [
 'name' => 'author',
-'label' => 'Quote author',
+'label' => 'Autore',
 ])

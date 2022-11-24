@@ -1,21 +1,18 @@
-@twillBlockTitle('Image')
+@twillBlockTitle('Immagine')
 @twillBlockIcon('image')
 
 @formField('medias', [
 'name' => 'image', // role
-'label' => 'Image',
+'label' => 'Immagine',
 'withVideoUrl' => false,
 ])
 
 @formField('input', [
 'name' => 'author',
-'label' => 'Author',
+'label' => 'Autore',
 ])
 
-@formField('radios', [
-'name' => 'ratio',
-'label' => "Ratio",
-'options' => collect(['full' => 'Full', 'half' => 'Half']),
-'default' => 'full',
-'inline' => true
+@formField('input', [
+'name' => 'caption',
+'label' => 'Didascalia',
 ])

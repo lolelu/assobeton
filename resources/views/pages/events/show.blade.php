@@ -4,10 +4,20 @@
             {{ __('Eventi') }}
         </h2>
     </x-slot>
-    <div class="mx-auto container bg-gray-50">
+    <div class="mx-auto container">
 
-        {{ $event->title }}
-        {!! $event->description !!}
+        <div class=" text-center my-12">
+            <h1>{{ $event->title }}</h1>
+            <h2>{{ $event->subtitle }}</h2>
+            <p>{!! $event->description !!} </p>
+            @if ($event->event == true)
+                <p>Evento dal {{ $event->publish_start_date }} al {{ $event->publish_end_date }}</p>
+            @else
+                <p>Evento del {{ date($event->publish_start_date) }}</p>
+            @endif
+
+        </div>
+
 
         {!! $event->renderNamedBlocks('Contenuto') !!}
 

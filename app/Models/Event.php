@@ -25,6 +25,15 @@ class Event extends Model implements Sortable
         return EventFactory::new();
     }
 
+    public function getTypeAttribute()
+    {
+        if ($this->event == 1) {
+            return "Evento";
+        } else {
+            return "News";
+        }
+    }
+
 
     protected $fillable = [
         'published',

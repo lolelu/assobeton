@@ -26,6 +26,11 @@ class EventController extends BaseModuleController
 
             ],
         ],
+
+        'type' => [ // presenter column
+            'title' => 'Tipologia',
+            'field' => 'type',
+        ],
         'relatedBrowserFieldName' => [ // related browser column
             'title' => 'Tematica',
             'field' => 'title',
@@ -54,21 +59,5 @@ class EventController extends BaseModuleController
             'field' => 'publish_end_date',
             'sort' => true,
         ],
-
-        'event' => [
-            'title' => 'Evento',
-            'field' => 'event',
-            'sort' => true,
-            'booleanOptions' => [
-                'true' => 'Si',
-                'false' => 'No',
-            ],
-        ],
-
-
-
-
-
-
     ];
 }
