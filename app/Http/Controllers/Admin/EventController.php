@@ -55,6 +55,19 @@ class EventController extends BaseModuleController
             'sort' => true,
         ],
 
+        'event' => [
+            'title' => 'Evento',
+            'field' => 'event',
+            'sort' => true,
+            'booleanOptions' => [
+                'true' => 'Si',
+                'false' => 'No',
+            ],
+        ],
+
+
+
+
 
 
     ];

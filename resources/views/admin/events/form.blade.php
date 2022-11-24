@@ -13,9 +13,34 @@
     'note' => 'Selezionando questa opzione l\'articolo sarà visibile solo ai soci'
     ])
 
+
+    @formField('checkbox' , [
+    'name' => 'event',
+    'label' => 'Evento',
+    'default' => false,
+    'note' => 'Seleziona se l\'articolo è un evento'
+    ])
+
+    @formConnectedFields([
+    'fieldName' => 'event',
+    'fieldValues' => true,
+    'renderForBlocks' => false,
+    ])
+
+    @formField('date_picker', [
+    'name' => 'event_date',
+    'label' => 'Data evento',
+    'default' => date('Y-m-d H:i:s'),
+    'note' => 'Seleziona la data dell\'evento'
+    ])
+
+    @endformConnectedFields
+
+
 @endsection
 
 @section('contentFields')
+
 
     @formField('browser', [
     'moduleName' => 'filterTopics',

@@ -31,12 +31,13 @@ class Event extends Model implements Sortable
         'title',
         'subtitle',
         'description',
-        'thematic',
         'private',
         'position',
         'tags',
+        'event',
         'publish_start_date',
         'publish_end_date',
+        'event_date',
 
     ];
 
