@@ -17,13 +17,14 @@ class EventRepository extends ModuleRepository
 {
     use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions, HandleTags;
 
-    protected $relatedBrowsers = ['filterTopic'];
+
 
     public function __construct(Event $model)
     {
         $this->model = $model;
     }
 
+    protected $relatedBrowsers = ['filterTopic'];
 
     public function allPublished()
     {

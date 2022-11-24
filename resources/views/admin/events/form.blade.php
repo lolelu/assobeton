@@ -17,13 +17,6 @@
 
 @section('contentFields')
 
-    @formField('files', [
-    'name' => 'file',
-    'label' => 'Allegato principale',
-    'note' => "Seleziona i file da allegare all\'articolo",
-    'required' => true,
-    ])
-
     @formField('browser', [
     'moduleName' => 'filterTopics',
     'name' => 'filterTopic',
@@ -81,7 +74,7 @@
     'name' => 'Files',
     'label' => 'Files',
     'max' => 10,
-    'note' => 'Seleziona i file da allegare all\'articolo',
+    'note' => "Seleziona i file da allegare all\'articolo",
     'blocks' => [ 'file' ]
     ])
 

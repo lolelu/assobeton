@@ -22,7 +22,7 @@ class EventController extends BaseModuleController
 
             'variant' => [
                 'role' => 'cover',
-                'crop' => 'default',
+                'crop' => 'mobile',
 
             ],
         ],

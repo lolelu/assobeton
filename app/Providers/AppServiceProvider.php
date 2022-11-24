@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             'gruppiMerceologicis' => 'App\Models\GruppiMerceologici',
             'filterTopics' => 'App\Models\FilterTopic',
             'pubblicazionis' => 'App\Models\Pubblicazioni',
+            'comunicatiStampas' => 'App\Models\ComunicatiStampa',
         ]);
     }
 }

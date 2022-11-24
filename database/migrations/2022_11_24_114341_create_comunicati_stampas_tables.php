@@ -11,7 +11,6 @@ class CreateComunicatiStampasTables extends Migration
         Schema::create('comunicati_stampas', function (Blueprint $table) {
             // this will create an id, a "published" column, and soft delete and timestamps columns
             createDefaultTableFields($table);
-            createDefaultTableFields($table);
 
             $table->string('title', 200)->nullable();
             $table->string('subtitle', 200)->nullable();

@@ -71,6 +71,7 @@ return [
     'bucketsRoutes' => [
         'eventsBucket' => 'contenuti.eventi',
         'pubblicazioniBucket' => 'contenuti.pubblicazioni',
+        'comunicatiBucket' => 'contenuti.comunicatiStampa',
     ],
 
     'buckets' => [
@@ -129,6 +130,37 @@ return [
                         [
                             'module' => 'pubblicazionis',
                             'name' => 'pubblicazionis',
+                            'scopes' => ['published' => true],
+                        ],
+                    ],
+                    'max_items' => 10,
+                ],
+            ],
+        ],
+
+        'comunicatiBucket' => [
+            'name' => 'In primo piano',
+
+            'buckets' => [
+                'comunicati_primary_feature' => [
+                    'name' => 'Comunicato più importante',
+                    'bucketables' => [
+                        [
+                            'module' => 'comunicatiStampas',
+                            'name' => 'comunicatiStampas',
+                            'scopes' => ['published' => true],
+
+                        ],
+                    ],
+                    'max_items' => 1,
+
+                ],
+                'comunicati_secondary_features' => [
+                    'name' => 'Comunicati secondari',
+                    'bucketables' => [
+                        [
+                            'module' => 'comunicatiStampas',
+                            'name' => 'comunicatiStampas',
                             'scopes' => ['published' => true],
                         ],
                     ],

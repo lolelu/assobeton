@@ -15,4 +15,6 @@ class ComunicatiStampaRequest extends Request
     {
         return [];
     }
+
+    // TODO: fill it
 }

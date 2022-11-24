@@ -109,6 +109,10 @@ return [
                 'title' => 'Comunicati stampa',
                 'route' => 'admin.contenuti.comunicatiStampa.comunicatiStampas.index',
                 'secondary_navigation' => [
+                    'comunicatiBucket' => [
+                        'title' => 'Home',
+                        'route' => 'admin.contenuti.comunicatiStampa.comunicatiBucket',
+                    ],
                     'comunicatiStampas' => [
                         'title' => 'Comunicati stampa',
                         'moduel' => true,
@@ -132,6 +136,7 @@ return [
             'circolari' => [
                 'title' => 'Circolari',
                 'route' => 'admin.contenuti.circolari.circolari.index',
+                'can' => 'WIP',
                 'secondary_navigation' => [
                     'circolari' => [
                         'title' => 'Circolari',
