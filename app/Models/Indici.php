@@ -8,31 +8,29 @@ use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasPosition;
-use A17\Twill\Models\Behaviors\HasRelated;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
 
-class Pubblicazioni extends Model implements Sortable
+class Indici extends Model implements Sortable
 {
-    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition, HasRelated;
+    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
     protected $fillable = [
         'published',
         'title',
-        'subtitle',
-        'author',
         'description',
+        'subtitle',
         'private',
         'position',
         'publish_start_date',
         'publish_end_date',
     ];
 
-
     public $slugAttributes = [
         'title',
     ];
 
+    public $filesParams = ['indice'];
 
     public $mediasParams = [
         'cover' => [
@@ -48,10 +46,7 @@ class Pubblicazioni extends Model implements Sortable
                     'ratio' => 1,
                 ],
             ],
+
         ],
-    ];
-    public $filesParams = [
-        'file',
-        'main_attachment',
     ];
 }

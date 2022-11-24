@@ -107,24 +107,24 @@ return [
 
             'comunicatiStampa' => [
                 'title' => 'Comunicati stampa',
-                'route' => 'admin.contenuti.comunicatiStampa.comunicatiStampa.index',
+                'route' => 'admin.contenuti.comunicatiStampa.comunicatiStampas.index',
                 'secondary_navigation' => [
-                    'comunicatiStampa' => [
+                    'comunicatiStampas' => [
                         'title' => 'Comunicati stampa',
                         'moduel' => true,
-                        'route' => 'admin.contenuti.comunicatiStampa.comunicatiStampa.index',
+                        'route' => 'admin.contenuti.comunicatiStampa.comunicatiStampas.index',
                     ],
                 ],
             ],
 
             'indici' => [
                 'title' => 'Indici dei Costi',
-                'route' => 'admin.contenuti.indici.indici.index',
+                'route' => 'admin.contenuti.indici.indicis.index',
                 'secondary_navigation' => [
-                    'indici' => [
+                    'indicis' => [
                         'title' => 'Indici dei Costi',
                         'moduel' => true,
-                        'route' => 'admin.contenuti.indici.indici.index',
+                        'route' => 'admin.contenuti.indici.indicis.index',
                     ],
                 ],
             ],

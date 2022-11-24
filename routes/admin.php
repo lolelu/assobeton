@@ -37,11 +37,11 @@ Route::group(['prefix' => 'contenuti'], function () {
         Route::module('filterTopics');
     });
     Route::group(['prefix' => 'comunicatiStampa'], function () {
-        Route::module('comunicatiStampa');
+        Route::module('comunicatiStampas');
         Route::module('filterTopics');
     });
     Route::group(['prefix' => 'indici'], function () {
-        Route::module('indici');
+        Route::module('indicis');
         Route::module('filterTopics');
     });
 
