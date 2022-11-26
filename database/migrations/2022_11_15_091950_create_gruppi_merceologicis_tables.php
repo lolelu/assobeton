@@ -17,6 +17,7 @@ class CreateGruppiMerceologicisTables extends Migration
             $table->text('description')->nullable();
             $table->integer('position')->unsigned()->nullable();
 
+            $table->text('template')->nullable();
 
             $table->string('subtitle', 200)->nullable();
         });

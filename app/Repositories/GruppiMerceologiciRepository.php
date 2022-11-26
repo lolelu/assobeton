@@ -18,6 +18,17 @@ class GruppiMerceologiciRepository extends ModuleRepository
         $this->model = $model;
     }
 
+    // TODO: Utile per il prefill dei blocchi
+
+    // public function afterSave($object, $fields)
+    // {
+    //     parent::afterSave($object, $fields);
+
+    //     if ($object->wasRecentlyCreated) {
+    //         $object->prefillBlockSelection();
+    //     }
+    // }
+
 
     public function allPublished()
     {
