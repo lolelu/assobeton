@@ -27,36 +27,40 @@ class EventRepository extends ModuleRepository
     protected $relatedBrowsers = ['filterTopic'];
 
 
+    // public function allPublished()
+    // {
+    //     return $this->model->published()->get();
+    // }
+
+
     public function allPublished()
-    {
-        return $this->model->published()->get();
-    }
-
-
-    public function allPublishedAndLive()
     {
 
 
         //REDO
-        return $this
-            ->allPublished()
-            ->where([
+        return $this->model
+            ->published()
+            ->where(function ($query) {
+                $query
+                    ->where([
 
-                ['publish_start_date', '<=', date('Y-m-d H:i:s')],
-                ['publish_end_date', '>=', date('Y-m-d H:i:s')],
-            ])
-            ->orWhere(function ($query) {
-                $query->whereNull('publish_start_date')
-                    ->whereNull('publish_end_date');
+                        ['publish_start_date', '<=', date('Y-m-d H:i:s')],
+                        ['publish_end_date', '>=', date('Y-m-d H:i:s')],
+                    ])
+                    ->orWhere(function ($query) {
+                        $query->whereNull('publish_start_date')
+                            ->whereNull('publish_end_date');
+                    })
+                    ->orWhere(function ($query) {
+                        $query->whereNull('publish_start_date')
+                            ->where('publish_end_date', '>=', date('Y-m-d H:i:s'));
+                    })
+                    ->orWhere(function ($query) {
+                        $query->where('publish_start_date', '<=', date('Y-m-d H:i:s'))
+                            ->whereNull('publish_end_date');
+                    });
             })
-            ->orWhere(function ($query) {
-                $query->whereNull('publish_start_date')
-                    ->where('publish_end_date', '>=', date('Y-m-d H:i:s'));
-            })
-            ->orWhere(function ($query) {
-                $query->where('publish_start_date', '<=', date('Y-m-d H:i:s'))
-                    ->whereNull('publish_end_date');
-            })
+
             ->orderBy('publish_start_date', 'desc')
             ->get();
     }

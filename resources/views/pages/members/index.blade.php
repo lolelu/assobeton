@@ -4,20 +4,19 @@
 
     </x-slot>
     <div class="mx-auto container bg-gray-50">
-        <div class="row justify-content-center">
+        <div class="flex justify-content-center gap-4">
 
 
-            <table>
-                @foreach ($members as $member)
-                    <tr>
-                        <td><img src="{{ $member->image('logo') }}" alt={{ $member->imageAltText('logo') }} width="100"
-                                height="100"></td>
-                        <td>{{ $member->title }}</td>
+            @foreach ($members as $member)
+                <div class=" bg-pri">
+                    <img src="{{ $member->image('logo') }}" alt={{ $member->imageAltText('logo') }} width="100"
+                        height="100">
+                    {{ $member->title }}
 
-                        <td><a href="{{ route('soci.show', $member->slug) }}">View</a></td>
-                    </tr>
-                @endforeach
-            </table>
+                    <a href="{{ route('soci.show', $member->slug) }}">View</a>
+                </div>
+            @endforeach
+
         </div>
     </div>
 

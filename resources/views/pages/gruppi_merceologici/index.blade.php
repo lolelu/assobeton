@@ -4,15 +4,16 @@
 
     </x-slot>
     <div class="mx-auto container bg-gray-50">
-        <div class="row justify-content-center">
+        <div class="justify-content-center flex">
 
 
-            <table>
-                @foreach ($gruppi as $gruppo)
+            @foreach ($gruppi as $gruppo)
+                <div>
                     <div> {{ $gruppo->title }}</div>
                     <a href="{{ route('gruppi_merceologici.show', $gruppo->slug) }}">View</a>
-                @endforeach
-            </table>
+                </div>
+            @endforeach
+
         </div>
     </div>
 

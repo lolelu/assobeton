@@ -90,11 +90,8 @@
         <div class=" flex items-center gap-8">
 
             <div class="text-2xl font-medium text-white ">Accedi</div>
-
-
-
             <button x-on:click="open = true"
-                class="w-[8.5rem] h-[8.5rem] bg-white rounded-full flex items-center justify-center hover:bg-cyan-200 duration-500 cursor-pointer ">
+                class="w-[8.5rem] h-[8.5rem] bg-white rounded-full flex items-center justify-center hover:bg-slate-300 duration-500 cursor-pointer ">
                 <div class=" text-primary text-2xl font-semibold">MENU</div>
             </button>
         </div>
