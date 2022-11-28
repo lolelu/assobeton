@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" x-bind:class="!open ? 'overflow-auto' : 'overflow-hidden'" x-init="$watch('open', value => {
+<nav x-data="{ open: false }" x-init="$watch('open', value => {
 
     if (value) {
         window.scrollTo(0, 0);

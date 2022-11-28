@@ -2,7 +2,7 @@
       x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0 scale-95"
       x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
       x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"
-      @click="open = false">
+      x-on:click="open = false">
 
       {{-- "main menu" in the center of the div --}}
 
@@ -15,15 +15,15 @@
               {{ __('Dashboard') }}
           </x-nav-link>
 
-          <x-nav-link :href="route('soci.index')" :active="request()->routeIs('members.index')">
+          <x-nav-link :href="route('soci.index')" :active="request()->routeIs('soci.*')">
               {{ __('Soci') }}
           </x-nav-link>
 
-          <x-nav-link :href="route('news_eventi.index')" :active="request()->routeIs('posts.index')">
+          <x-nav-link :href="route('news_eventi.index')" :active="request()->routeIs('news_eventi.*')">
               {{ __('News e Eventi') }}
           </x-nav-link>
 
-          <x-nav-link :href="route('gruppi_merceologici.index')" :active="request()->routeIs('gruppi_merceologici.index')">
+          <x-nav-link :href="route('gruppi_merceologici.index')" :active="request()->routeIs('gruppi_merceologici.*')">
               {{ __('Gruppi Merceologici') }}
           </x-nav-link>
       </div>

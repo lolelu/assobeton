@@ -26,11 +26,20 @@ class EventRepository extends ModuleRepository
 
     protected $relatedBrowsers = ['filterTopic'];
 
+
     public function allPublished()
     {
+        return $this->model->published()->get();
+    }
 
-        return $this->model
-            ->where('published', true)
+
+    public function allPublishedAndLive()
+    {
+
+
+        //REDO
+        return $this
+            ->allPublished()
             ->where([
 
                 ['publish_start_date', '<=', date('Y-m-d H:i:s')],
