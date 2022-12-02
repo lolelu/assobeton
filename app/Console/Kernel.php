@@ -18,31 +18,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->everyMinute();
-        // $schedule->call(DB::table('recent_users')->delete())->everyMinute();
 
-        // $schedule->call(function () {
-        //     $response = Http::get('https://6388ac21d94a7e5040a3887c.mockapi.io/circolari/circolari');
-
-
-        //     foreach ($response->json() as $circolare) {
-        //         $circolare = Circolari::updateOrCreate(
-        //             ['id' => $circolare['id']],
-        //             [
-
-        //                 'title' => $circolare['circolare']['titolo'],
-        //                 'date' => date('Y-m-d H:i:s', strtotime($circolare['circolare']['data'])),
-        //                 'destinatari' => $circolare['circolare']['destinatari'],
-        //                 'area' => $circolare['circolare']['areaprincipale'],
-        //                 'main_file' => $circolare['circolare']['documento']['documentoprincipale'],
-
-
-        //             ]
-        //         );
-        //     }
-        // })->everyMinute();
-
-        $schedule->command('circolari:sync')->everyMinute();
+        $schedule->command('circolari:sync')->everySixHours();
     }
 
     /**
