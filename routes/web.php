@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Response;
+use App\Models\GruppiMerceologici;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\SociController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\ProfileController;
+//Response
 use App\Http\Controllers\NewsEventiController;
 use App\Http\Controllers\GruppiMerceologiciController;
-use App\Models\GruppiMerceologici;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-//Response
-use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ use Illuminate\Http\Response;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('test', [TestController::class, 'store']);
 
 Route::get('/', function () {
     return view('welcome');

@@ -46,7 +46,7 @@ Route::group(['prefix' => 'contenuti'], function () {
     });
 
     Route::group(['prefix' => 'circolari'], function () {
-        Route::module('circolari');
+        Route::module('circolaris');
     });
 });
 

@@ -135,13 +135,12 @@ return [
 
             'circolari' => [
                 'title' => 'Circolari',
-                'route' => 'admin.contenuti.circolari.circolari.index',
-                'can' => 'WIP',
+                'route' => 'admin.contenuti.circolari.circolaris.index',
                 'secondary_navigation' => [
-                    'circolari' => [
+                    'circolaris' => [
                         'title' => 'Circolari',
                         'moduel' => true,
-                        'route' => 'admin.contenuti.circolari.circolari.index',
+                        'route' => 'admin.contenuti.circolari.circolaris.index',
                     ],
                 ],
             ],
