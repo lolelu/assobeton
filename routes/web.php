@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\SociController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
-//Response
 use App\Http\Controllers\NewsEventiController;
 use App\Http\Controllers\GruppiMerceologiciController;
 
@@ -26,8 +25,8 @@ use App\Http\Controllers\GruppiMerceologiciController;
 Route::get('test', [TestController::class, 'store']);
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pages/index');
+})->name('index');
 Route::get('/soci', [SociController::class, 'index'])->name('soci.index');
 Route::get('/soci/{slug}', [SociController::class, 'show'])->name('soci.show');
 

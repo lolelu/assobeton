@@ -14,9 +14,23 @@ class EventController extends BaseModuleController
 
     protected $indexOptions = [
         'reorder' => true,
+        'publish' => false,
+        'bulkPublish' => false,
+        'bulkDelete' => true,
+        'permalink' => true,
+
+    ];
+
+    protected $browserColumns = [
+        'title' => [
+            'title' => 'Title',
+            'field' => 'title',
+        ],
     ];
 
     protected $indexColumns = [
+
+
         'logo' => [
             'thumb' => true,
 
@@ -25,6 +39,12 @@ class EventController extends BaseModuleController
                 'crop' => 'mobile',
 
             ],
+        ],
+        'published' => [
+            'title' => 'Stato',
+            'field' => 'isPublished',
+            'sort' => true,
+
         ],
 
         'type' => [ // presenter column

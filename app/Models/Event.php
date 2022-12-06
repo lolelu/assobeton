@@ -19,6 +19,13 @@ class Event extends Model implements Sortable
 {
     use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition, HasFactory, HasRelated;
 
+    /**
+     * Get the name of the index associated with the model.
+     *
+     * @return string
+     */
+
+
 
     protected static function newFactory()
     {
@@ -31,6 +38,15 @@ class Event extends Model implements Sortable
             return "Evento";
         } else {
             return "News";
+        }
+    }
+
+    public function getIsPublishedAttribute()
+    {
+        if ($this->published == 1) {
+            return "Pubblicato";
+        } else {
+            return "Non Pubblicato";
         }
     }
 

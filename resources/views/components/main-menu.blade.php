@@ -8,11 +8,12 @@
 
       <div>MAIN MENU</div>
 
-
       {{-- aggiungi nel menu --}}
-      <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-              {{ __('Dashboard') }}
+      <div class="space-x-8 max-w-screen-lg mx-auto flex bg-white p-8">
+
+          {{-- Rendi dinamico --}}
+          <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+              {{ __('Index') }}
           </x-nav-link>
 
           <x-nav-link :href="route('soci.index')" :active="request()->routeIs('soci.*')">
@@ -26,6 +27,31 @@
           <x-nav-link :href="route('gruppi_merceologici.index')" :active="request()->routeIs('gruppi_merceologici.*')">
               {{ __('Gruppi Merceologici') }}
           </x-nav-link>
+
+          @if (Route::has('login'))
+              @auth
+                  <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                      {{ __('Dashboard') }}
+                  </x-nav-link>
+
+                  <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+                      <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"
+                          onclick="event.preventDefault(); this.closest('form').submit();">
+                          {{ __('Log Out') }}
+                      </a>
+                  </form>
+              @else
+                  <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                  @if (Route::has('register'))
+                      <a href="{{ route('register') }}"
+                          class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                  @endif
+
+              @endauth
+          @endif
+
       </div>
 
 

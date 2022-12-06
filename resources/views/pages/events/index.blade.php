@@ -6,17 +6,9 @@
         <div class="row justify-content-center">
 
 
-            <table>
-                @foreach ($events as $event)
-                    <tr>
-                        <td><img src="{{ $event->image('logo') }}" alt={{ $event->imageAltText('logo') }} width="100"
-                                height="100"></td>
-                        <td>{{ $event->title }}</td>
+            <livewire:news-events />
 
-                        <td><a href="{{ route('news_eventi.show', $event->slug) }}">View</a></td>
-                    </tr>
-                @endforeach
-            </table>
+
         </div>
     </div>
 

@@ -16,7 +16,7 @@
                 <div class="shrink-0 flex items-center">
 
                     {{-- Riporta a home --}}
-                    <a href="{{ route('dashboard') }}" class="flex flex-col sm:flex-row items-center  sm:items-end">
+                    <a href="{{ route('index') }}" class="flex flex-col sm:flex-row items-center  sm:items-end">
                         <img src="{{ asset('images/logo_assobeton.png') }}" alt="Logo" class="w-40 grayscale  invert">
                     </a>
                 </div>

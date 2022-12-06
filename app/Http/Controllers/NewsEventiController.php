@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Repositories\EventRepository;
 
 use \A17\Twill\Models\Feature;
+use App\Models\Event;
 
 class NewsEventiController extends Controller
 {
@@ -16,7 +17,7 @@ class NewsEventiController extends Controller
         $this->eventRepository = $eventRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $events = $this->eventRepository->allPublished();
 

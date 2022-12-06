@@ -18,11 +18,16 @@ class EventRepository extends ModuleRepository
     use HandleBlocks, HandleSlugs, HandleMedias, HandleFiles, HandleRevisions, HandleTags;
 
 
-
-    public function __construct(Event $model)
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = new Event;
     }
+
+
+    // public function __construct(Event $model)
+    // {
+    //     $this->model = $model;
+    // }
 
     protected $relatedBrowsers = ['filterTopic'];
 

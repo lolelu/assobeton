@@ -13,6 +13,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -20,16 +22,20 @@
 
         <header style="background-image: url('{{ asset('images/header_fill.png') }}')" class="bg-cover bg-left  ">
 
-            <div class="flex flex-col max-w-7xl mx-auto h-[646px] pt-8 pb-16 px-6 sm:px-6 lg:px-14">
+
+            {{-- TODO: muovi h- nelle due componenti --}}
+            <div class="flex flex-col max-w-7xl mx-auto  pt-8 pb-16 px-6 sm:px-6 lg:px-14 space-y-40">
                 <nav class=" grow">
                     @include('layouts.navigation')
                 </nav>
 
                 <!-- Page Heading -->
                 @if (isset($header))
-                    <h2 class="  text-white text-7xl font-extrabold leading-tight ">
-                        {{ $header }}
-                    </h2>
+                    <div class="flex flex-col justify-end">
+                        <h2 class="  text-white text-7xl font-extrabold leading-tight ">
+                            {{ $header }}
+                        </h2>
+                    </div>
                 @endif
             </div>
 
@@ -42,9 +48,10 @@
         </main>
     </div>
 
-    <footer>
-        <x-footer />
-    </footer>
+
+    <x-footer />
+
+    @livewireScripts
 </body>
 
 </html>
